@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Главная - NewsExplorer</title>
+    <link
+      rel="stylesheet"
+      href="<%= htmlWebpackPlugin.files.chunks.index.css %>"
+      type="text/css"
+    />
+    <link
+      rel="icon"
+      href="<%=require('./favicon.png').default%>"
+      type="image/ico"
+    />
+  </head>
+  <body>
+    <div class="root">
+      <header class="header root__section">
+        <div class="header__cover">
+          <div class="header__navigation">
+            <div class="header__logo">
+              <p class="header__logo-text">NewsExplorer</p>
+              <img class="header__mobile-icon" src="<%=require('./images/menu.png').default%>" alt="Иконка меню">
+            </div>
+            <nav class="header__nav">
+              <ul class="header__list">
+                <li class="header__item">
+                  <a
+                    href="./index.html"
+                    class="link header__link_color_white header__link header__link_active-white"
+                    >Главная</a
+                  >
+                </li>
+                <li class="header__item">
+                  <a
+                    href="./articles.html"
+                    class="link header__link header__link_inactive"
+                    >Сохранённые статьи</a
+                  >
+                </li>
+                <li class="header__item">
+                  <a
+                    href="#"
+                    class="link header__link_color_white header__link header__link_border-white"
+                    >Авторизоваться</a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </div>
+
+          <div class="header__line header__line_color_white"></div>
+
+          <div class="popup popup_signin">
+            <div class="popup__content">
+              <img
+                src="<%=require('./images/close.png').default%>"
+                alt=""
+                class="popup__close popup__close_signin"
+              />
+              <h3 class="popup__title">Вход</h3>
+              <form class="popup__form" name="signin">
+                <div class="popup__input-container">
+                  <label for="email-signin" class="popup__label">Email</label>
+                  <input
+                    id="email-signin"
+                    type="text"
+                    name="email"
+                    class="popup__input popup__input_type_email-signin"
+                    placeholder="Введите почту"
+                    required
+                    minlength="2"
+                    maxlength="32"
+                  />
+                  <span
+                    id="email-signin-error"
+                    class="popup__input-error popup__input-error_email-signin"
+                  ></span>
+                </div>
+                <div class="popup__input-container">
+                  <label for="password-signin" class="popup__label"
+                    >Пароль</label
+                  >
+                  <input
+                    id="password-signin"
+                    type="password"
+                    name="password"
+                    class="popup__input popup__input_type_password-signin"
+                    placeholder="Введите пароль"
+                    required
+                  />
+                  <span
+                    id="password-signin-error"
+                    class="popup__input-error popup__input-error_password-signin"
+                  ></span>
+                </div>
+
+                <button
+                  type="submit"
+                  class="button popup__button popup__button_signin popup__button_is-disabled"
+                >
+                  Войти
+                </button>
+
+                <p class="popup__text">
+                  или <span class="popup__link">Зарегистрироваться</span>
+                </p>
+              </form>
+            </div>
+          </div>
+
+          <div class="popup popup_signup">
+            <div class="popup__content">
+              <img
+                src="<%=require('./images/close.png').default%>"
+                alt=""
+                class="popup__close popup__close_signup"
+              />
+              <h3 class="popup__title">Регистрация</h3>
+              <form class="popup__form" name="signup">
+                <div class="popup__input-container">
+                  <label for="email-signup" class="popup__label">Email</label>
+                  <input
+                    id="email-signup"
+                    type="text"
+                    name="email"
+                    class="popup__input popup__input_type_email-signup"
+                    placeholder="Введите почту"
+                    required
+                    minlength="2"
+                    maxlength="32"
+                  />
+                  <span
+                    id="email-signup-error"
+                    class="popup__input-error popup__input-error_email-signup"
+                  ></span>
+                </div>
+                <div class="popup__input-container">
+                  <label for="password-signup" class="popup__label"
+                    >Пароль</label
+                  >
+                  <input
+                    id="password-signup"
+                    type="password"
+                    name="password"
+                    class="popup__input popup__input_type_password-signup"
+                    placeholder="Введите пароль"
+                    required
+                  />
+                  <span
+                    id="password-signin-error"
+                    class="popup__input-error popup__input-error_password-signin"
+                  ></span>
+                </div>
+                <div class="popup__input-container">
+                  <label for="name-signup" class="popup__label">Имя</label>
+                  <input
+                    id="name-signup"
+                    type="text"
+                    name="name"
+                    class="popup__input popup__input_type_name-signup"
+                    placeholder="Введите свое имя"
+                    required
+                  />
+                  <span
+                    id="name-signup-error"
+                    class="popup__input-error popup__input-error_name-signup"
+                  ></span>
+                </div>
+                <button
+                  type="submit"
+                  class="button popup__button popup__button_signin popup__button_is-disabled"
+                >
+                  Зарегистрироваться
+                </button>
+
+                <p class="popup__text">
+                  или <span class="popup__link">Войти</span>
+                </p>
+              </form>
+            </div>
+          </div>
+
+          <section class="header__search">
+            <h1 class="header__title">Что в мире творится?</h1>
+            <p class="header__subtitle">
+              Находите самые свежие статьи на любую тему и сохраняйте в своём
+              личном кабинете.
+            </p>
+            <form action="#" class="header__info">
+              <input
+                type="text"
+                placeholder="Введите тему новости"
+                class="header__input"
+              />
+              <button class="button header__button">Искать</button>
+            </form>
+          </section>
+        </div>
+      </header>
+
+      <section class="results root__section">
+        <h2 class="results__title">Результаты поиска</h2>
+        <div class="results__container">
+          <div class="article">
+            <div class="article__image">
+              <button class="article__icon article__icon_type_save"></button>
+            </div>
+            <div class="article__description">
+              <p class="article__date">2 августа, 2019</p>
+              <h3 class="article__title">Национальное достояние - парки</h3>
+              <p class="article__text">
+                В 2016 году Америка отмечала важный юбилей: сто лет назад здесь
+                начала складываться система национальных парков – охраняемых
+                территорий, где и сегодня каждый может приобщиться к природе.
+              </p>
+              <p class="article__source">Лента.ру</p>
+            </div>
+          </div>
+          <div class="article">
+            <div class="article__image">
+              <button class="article__icon article__icon_type_save"></button>
+              <p class="article__tip">Войдите, чтобы сохранять статьи</p>
+            </div>
+            <div class="article__description">
+              <p class="article__date">2 августа, 2019</p>
+              <h3 class="article__title">Национальное достояние - парки</h3>
+              <p class="article__text">
+                В 2016 году Америка отмечала важный юбилей: сто лет назад здесь
+                начала складываться система национальных парков – охраняемых
+                территорий, где и сегодня каждый может приобщиться к природе.
+              </p>
+              <p class="article__source">Лента.ру</p>
+            </div>
+          </div>
+          <div class="article">
+            <div class="article__image">
+              <button class="article__icon article__icon_type_marked"></button>
+            </div>
+            <div class="article__description">
+              <p class="article__date">2 августа, 2019</p>
+              <h3 class="article__title">Национальное достояние - парки</h3>
+              <p class="article__text">
+                В 2016 году Америка отмечала важный юбилей: сто лет назад здесь
+                начала складываться система национальных парков – охраняемых
+                территорий, где и сегодня каждый может приобщиться к природе. В
+                2016 году Америка отмечала важный юбилей: сто лет назад здесь
+                начала складываться система национальных парков – охраняемых
+                территорий, где и сегодня каждый может приобщиться к природе.
+              </p>
+              <p class="article__source">Лента.ру</p>
+            </div>
+          </div>
+        </div>
+        <button class="button results__button">Показать еще</button>
+      </section>
+
+      <section class="results root__section">
+        <div class="results__loading">
+          <div class="results__preloader"></div>
+          <p class="results__search">Идет поиск новостей...</p>
+        </div>
+      </section>
+
+      <section class="results root__section">
+        <div class="results__loading">
+          <div class="results__not-found-image"></div>
+          <h2 class="results__not-found-title">Ничего не найдено</h2>
+          <p class="results__search">К сожалению по вашему запросу ничего не найдено.</p>
+        </div>
+      </section>
+
+      <section class="about-author root__section">
+        <div class="about-author__photo">
+          <img
+            src="<%=require('./images/image-03.png').default%>"
+            alt="my photo"
+            class="about-author__photo-me"
+          />
+        </div>
+        <div class="about-author__block">
+          <h2 class="about-author__title">Об авторе</h2>
+          <p class="about-author__text">
+            Это блок с описанием автора проекта. Здесь следует указать, как вас
+            зовут, чем вы занимаетесь, какими технологиями разработки владеете.
+          </p>
+          <p class="about-author__text">
+            Tакже можно рассказать о процессе обучения в Практикуме, чему вы тут
+            научились, и чем можете помочь потенциальным заказчикам.
+          </p>
+        </div>
+      </section>
+
+      <footer class="footer root__section">
+        <p class="footer__copyright">© 2020 Supersite, Powered by News API</p>
+        <div class="footer__soc-links">
+          <ul class="footer__block">
+            <li class="footer__item-link">
+              <a href="#" class="link footer__link">Главная</a>
+            </li>
+            <li class="footer__item-link">
+              <a href="#" class="link footer__link">Яндекс.Практикум</a>
+            </li>
+          </ul>
+          <ul class="footer__block">
+            <li class="footer__item-icon">
+              <a href="#" class="footer__icon"
+                ><img
+                  src="<%=require('./images/github.png').default%>"
+                  alt="icon of github"
+              /></a>
+            </li>
+            <li class="footer__item-icon">
+              <a href="#" class="footer__icon"
+                ><img
+                  src="<%=require('./images/fb.png').default%>"
+                  alt="icon of facebook"
+              /></a>
+            </li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+    <script src="<%= htmlWebpackPlugin.files.chunks.index.entry %>"></script>
+  </body>
+</html>

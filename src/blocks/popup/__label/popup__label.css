@@ -1,0 +1,11 @@
+.popup__label {
+  font-family: 'inter-regular', serif;
+  font-size: 12px;
+  line-height: 15px;
+  color: #2F71E5;
+  padding-left: 2px;
+}
+
+.popup__label:last-child {
+  margin-top: 16px;
+}

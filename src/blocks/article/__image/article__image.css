@@ -1,0 +1,27 @@
+.article__image {
+  height: 272px;
+  background-size: cover;
+  background-position: center;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+	position: relative;
+  background-image: url('../../../images/image_08.png');
+}
+
+@media screen and (max-width: 1280px) {
+  .article__image {
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .article__image {
+    height: 150px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .article__image {
+    height: 200px;
+  }
+}

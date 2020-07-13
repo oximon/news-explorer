@@ -1,0 +1,13 @@
+.article__date {
+  font-family: 'Source Sans Pro', serif;
+  font-size: 18px;
+  line-height: 24px;
+  color: #B6BCBF;
+  margin: 0 0 12px;
+}
+
+@media screen and (max-width: 767px) {
+  .article__date {
+    margin: 0 0 10px;
+  }
+}

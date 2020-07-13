@@ -1,0 +1,7 @@
+.article__icon_type_delete {
+  background: url(../../../../images/Group13.png) center no-repeat;
+}
+
+.article__icon_type_delete:hover {
+  background: url(../../../../images/Group14.png) center no-repeat;
+}

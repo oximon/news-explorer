@@ -1,0 +1,13 @@
+@keyframes load {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+.results__preloader {
+  background-image: url('../../../images/Ellipse.png');
+  width: 74px;
+  height: 74px;
+  margin-bottom: 24px;
+  animation: load .75s linear infinite;
+}

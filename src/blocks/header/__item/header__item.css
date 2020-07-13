@@ -1,0 +1,28 @@
+.header__item {
+  margin-right: 32px;
+}
+
+.header__item:last-child {
+  margin-right: 0;
+}
+
+@media screen and (max-width: 1024px) {
+  .header__item {
+    margin-right: 16px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .header__item {
+    margin: 0 0 27px;
+  }
+
+  .header__item:last-child {
+    margin-top: 15px;
+    margin-bottom: 17px;
+    text-align: center;
+    align-self: stretch;
+    justify-content: center;
+    display: flex;
+  }
+}

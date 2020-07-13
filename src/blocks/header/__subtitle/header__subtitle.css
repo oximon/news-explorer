@@ -1,0 +1,13 @@
+.header__subtitle {
+  font-family: 'Roboto', serif;
+  font-size: 18px;
+  line-height: 24px;
+  max-width: 587px;
+  margin: 0 0 48px;
+}
+
+@media screen and (max-width: 475px) {
+  .header__search {
+    max-width: 320px;
+  }
+}

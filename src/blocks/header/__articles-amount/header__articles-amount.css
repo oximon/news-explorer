@@ -1,0 +1,17 @@
+.header__articles-amount {
+  font-family: 'Roboto Slab', serif;
+  font-size: 40px;
+  line-height: 46px;
+  color: #1A1B22;
+  margin: 0 0 30px;
+  max-width: 543px;
+}
+
+@media screen and (max-width: 768px) {
+  .header__articles-amount {
+    font-size: 30px;
+    line-height: 34px;
+    margin: 0 0 16px;
+    max-width: 336px;
+  }
+}

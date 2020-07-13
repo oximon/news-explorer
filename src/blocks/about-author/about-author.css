@@ -1,0 +1,18 @@
+.about-author {
+  display: flex;
+  margin: 80px 104px;
+  align-items: center;
+}
+
+@media screen and (max-width: 1024px) {
+  .about-author {
+    margin: 61px 40px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .about-author {
+    margin: 32px 16px 70px;
+    flex-direction: column;
+  }
+}
