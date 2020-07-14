@@ -1,0 +1,17 @@
+.about-author__text {
+  font-family: 'Roboto', serif;
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 24px;
+  max-width: 613px;
+}
+
+.about-author__text::last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .about-author__text {
+    max-width: 435px;
+  }
+}

@@ -1,0 +1,10 @@
+.footer__soc-links {
+  display: flex;
+}
+
+@media screen and (max-width: 767px) {
+  .footer__soc-links {
+    order: -1;
+    justify-content: space-between;
+  }
+}

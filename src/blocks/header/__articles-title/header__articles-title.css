@@ -1,0 +1,15 @@
+.header__articles-title {
+  font-family: 'Roboto', serif;
+  font-size: 18px;
+  line-height: 24px;
+  color: rgba(26, 27, 34, 0.5);
+  margin: 0 0 28px;
+  font-weight: normal;
+}
+
+@media screen and (max-width: 768px) {
+  .header__articles-title {
+    font-size: 14px;
+    margin: 0 0 16px;
+  }
+}

@@ -1,0 +1,29 @@
+.article__keyword {
+  font-family: 'Roboto', serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #000;
+  font-weight: bold;
+  background-color: #fff;
+  padding: 8px 12px;
+  position: absolute;
+  border-radius: 10px;
+  top: 24px;
+  left: 24px;
+  height: 40px;
+  margin: 0;
+}
+
+@media screen and (max-width: 1024px) {
+  .article__keyword {
+    top: 8px;
+    left: 8px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .article__keyword {
+    top: 16px;
+    left: 16px;
+  }
+}

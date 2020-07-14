@@ -1,0 +1,23 @@
+.header__input {
+  width: 100%;
+  border-radius: 100px;
+  height: 64px;
+  padding: 0 24px;
+  outline: none;
+  color: #1A1B22;
+  font-family: 'Roboto', serif;
+  font-size: 16px;
+  line-height: 22px;
+  border: none;
+}
+
+.header__input::placeholder {
+  font-family: 'Roboto', serif;
+  color: #B6BCBF;
+}
+
+@media screen and (max-width: 767px) {
+  .header__input {
+    margin-bottom: 16px;
+  }
+}

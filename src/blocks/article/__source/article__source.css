@@ -1,0 +1,9 @@
+.article__source {
+  font-family: 'Roboto Slab', serif;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.4;
+  text-transform: uppercase;
+  color: #B6BCBF;
+  font-weight: bold;
+}

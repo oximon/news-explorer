@@ -1,0 +1,11 @@
+.header__mobile-icon {
+  display: none;
+  width: 24px;
+  height: 24px;
+}
+
+@media screen and (max-width: 767px) {
+  .header__mobile-icon {
+    display: block;
+  }
+}

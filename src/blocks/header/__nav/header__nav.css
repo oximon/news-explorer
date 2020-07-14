@@ -1,0 +1,9 @@
+.header__nav {
+  padding: 8px 0;
+}
+
+@media screen and (max-width: 767px) {
+  .header__nav {
+    width: 100%;
+  }
+}

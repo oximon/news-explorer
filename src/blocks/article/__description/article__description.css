@@ -1,0 +1,9 @@
+.article__description {
+  padding: 24px;
+}
+
+@media screen and (max-width: 1024px) {
+  .article__description {
+    padding: 16px;
+  }
+}

@@ -1,0 +1,26 @@
+.results__button {
+  background-color: #fff;
+  color: #1a1b22;
+  width: 288px;
+  height: 64px;
+  margin-bottom: 80px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.results__button:hover {
+  opacity: 0.9;
+}
+
+@media screen and (max-width: 1024px) {
+  .results__button {
+    margin-bottom: 40px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .results__button {
+    margin-bottom: 32px;
+  }
+}
