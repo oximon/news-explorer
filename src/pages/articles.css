@@ -10,6 +10,7 @@
 
 /* header */
 @import url('../blocks/header/__navigation/header__navigation.css');
+@import url('../blocks/header/__navigation/_dark/header__navigation_dark.css');
 @import url('../blocks/header/__nav/header__nav.css');
 @import url('../blocks/header/__logo/header__logo.css');
 @import url('../blocks/header/__logo-text/header__logo-text.css');
