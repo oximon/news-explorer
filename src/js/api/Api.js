@@ -11,6 +11,7 @@ export default class Api {
         method: 'POST',
         headers: this.config.headers,
         credentials: 'include',
+        withCredentials: true,
         body: JSON.stringify({
           email: email,
           password: password,
@@ -53,6 +54,7 @@ export default class Api {
         method: 'GET',
         headers: this.config.headers,
         credentials: 'include',
+        withCredentials: true,
       });
       if (userInfo.ok) {
         return userInfo.json();
