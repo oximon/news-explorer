@@ -1,4 +1,4 @@
-.popup__button_is-disabled {
-  color: rgba(0, 0, 0, 0.2);
-  background-color: #fff;
+.button__is-disabled {
+  background-color: #E6E8EB;
+  color: #B6BCBF;
 }

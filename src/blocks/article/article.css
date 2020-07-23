@@ -1,7 +1,9 @@
 .article {
   background-color: #fff;
+  width: calc((100vw - 768px)/672*176 + 224px);
   border-radius: 16px;
   cursor: url('../../images/lapka.png'), pointer;
+  text-decoration: none;
 }
 
 .article:hover {

@@ -1,3 +1,9 @@
 .header__nav_hide {
-  display: none;
+  display: block;
+  position: fixed;
+  top: 64px;
+  background-color: #1A1B22;
+  left: 0;
+  padding: 0 16px;
+  padding-top: 20px;
 }

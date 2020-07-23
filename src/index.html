@@ -20,12 +20,17 @@
     <div class="root">
       <header class="header root__section">
         <div class="header__cover">
-          <div class="header__navigation">
+          <div id="navigation" class="header__navigation">
             <div class="header__logo">
               <p class="header__logo-text">NewsExplorer</p>
-              <img class="header__mobile-icon" src="<%=require('./images/menu.png').default%>" alt="Иконка меню">
+              <img
+                id="hamburger"
+                class="header__mobile-icon"
+                src="<%=require('./images/menu.png').default%>"
+                alt="Иконка меню"
+              />
             </div>
-            <nav class="header__nav">
+            <nav id="nav" class="header__nav">
               <ul class="header__list">
                 <li class="header__item">
                   <a
@@ -34,7 +39,7 @@
                     >Главная</a
                   >
                 </li>
-                <li class="header__item">
+                <li id="item_hide" class="header__item header__item_hide">
                   <a
                     href="./articles.html"
                     class="link header__link header__link_inactive"
@@ -43,6 +48,7 @@
                 </li>
                 <li class="header__item">
                   <a
+                    id="toSigninButton"
                     href="#"
                     class="link header__link_color_white header__link header__link_border-white"
                     >Авторизоваться</a
@@ -55,7 +61,7 @@
           <div class="header__line header__line_color_white"></div>
 
           <div class="popup popup_signin">
-            <div class="popup__content">
+            <div class="popup__content popup__content_common">
               <img
                 src="<%=require('./images/close.png').default%>"
                 alt=""
@@ -67,13 +73,11 @@
                   <label for="email-signin" class="popup__label">Email</label>
                   <input
                     id="email-signin"
-                    type="text"
+                    type="email"
                     name="email"
                     class="popup__input popup__input_type_email-signin"
                     placeholder="Введите почту"
                     required
-                    minlength="2"
-                    maxlength="32"
                   />
                   <span
                     id="email-signin-error"
@@ -91,6 +95,8 @@
                     class="popup__input popup__input_type_password-signin"
                     placeholder="Введите пароль"
                     required
+                    minlength="2"
+                    maxlength="30"
                   />
                   <span
                     id="password-signin-error"
@@ -99,6 +105,8 @@
                 </div>
 
                 <button
+                  disabled
+                  id="signinButton"
                   type="submit"
                   class="button popup__button popup__button_signin popup__button_is-disabled"
                 >
@@ -106,14 +114,33 @@
                 </button>
 
                 <p class="popup__text">
-                  или <span class="popup__link">Зарегистрироваться</span>
+                  или
+                  <span id="toSignup" class="popup__link"
+                    >Зарегистрироваться</span
+                  >
                 </p>
               </form>
             </div>
           </div>
 
+          <div class="popup popup_success">
+            <div class="popup__content popup__content_success">
+              <img
+                src="<%=require('./images/close.png').default%>"
+                alt=""
+                class="popup__close popup__close_signup"
+              />
+              <h3 class="popup__title popup__title_success">
+                Пользователь успешно зарегистрирован!
+              </h3>
+              <span id="toSigninSuccess" class="popup__link"
+                >Выполнить вход</span
+              >
+            </div>
+          </div>
+
           <div class="popup popup_signup">
-            <div class="popup__content">
+            <div class="popup__content popup__content_common">
               <img
                 src="<%=require('./images/close.png').default%>"
                 alt=""
@@ -125,13 +152,11 @@
                   <label for="email-signup" class="popup__label">Email</label>
                   <input
                     id="email-signup"
-                    type="text"
+                    type="email"
                     name="email"
                     class="popup__input popup__input_type_email-signup"
                     placeholder="Введите почту"
                     required
-                    minlength="2"
-                    maxlength="32"
                   />
                   <span
                     id="email-signup-error"
@@ -149,6 +174,8 @@
                     class="popup__input popup__input_type_password-signup"
                     placeholder="Введите пароль"
                     required
+                    minlength="2"
+                    maxlength="30"
                   />
                   <span
                     id="password-signin-error"
@@ -164,6 +191,8 @@
                     class="popup__input popup__input_type_name-signup"
                     placeholder="Введите свое имя"
                     required
+                    minlength="2"
+                    maxlength="30"
                   />
                   <span
                     id="name-signup-error"
@@ -171,6 +200,8 @@
                   ></span>
                 </div>
                 <button
+                  disabled
+                  id="signupButton"
                   type="submit"
                   class="button popup__button popup__button_signin popup__button_is-disabled"
                 >
@@ -178,7 +209,7 @@
                 </button>
 
                 <p class="popup__text">
-                  или <span class="popup__link">Войти</span>
+                  или <span id="toSignin" class="popup__link">Войти</span>
                 </p>
               </form>
             </div>
@@ -190,82 +221,34 @@
               Находите самые свежие статьи на любую тему и сохраняйте в своём
               личном кабинете.
             </p>
-            <form action="#" class="header__info">
+            <form class="header__info">
               <input
+                id="searchInput"
+                required
                 type="text"
                 placeholder="Введите тему новости"
                 class="header__input"
               />
-              <button class="button header__button">Искать</button>
+              <button id="searchButton" class="button header__button">Искать</button>
             </form>
           </section>
         </div>
       </header>
 
-      <section class="results root__section">
+      <section id="successResults" class="results root__section">
         <h2 class="results__title">Результаты поиска</h2>
-        <div class="results__container">
-          <div class="article">
-            <div class="article__image">
-              <button class="article__icon article__icon_type_save"></button>
-            </div>
-            <div class="article__description">
-              <p class="article__date">2 августа, 2019</p>
-              <h3 class="article__title">Национальное достояние - парки</h3>
-              <p class="article__text">
-                В 2016 году Америка отмечала важный юбилей: сто лет назад здесь
-                начала складываться система национальных парков – охраняемых
-                территорий, где и сегодня каждый может приобщиться к природе.
-              </p>
-              <p class="article__source">Лента.ру</p>
-            </div>
-          </div>
-          <div class="article">
-            <div class="article__image">
-              <button class="article__icon article__icon_type_save"></button>
-              <p class="article__tip">Войдите, чтобы сохранять статьи</p>
-            </div>
-            <div class="article__description">
-              <p class="article__date">2 августа, 2019</p>
-              <h3 class="article__title">Национальное достояние - парки</h3>
-              <p class="article__text">
-                В 2016 году Америка отмечала важный юбилей: сто лет назад здесь
-                начала складываться система национальных парков – охраняемых
-                территорий, где и сегодня каждый может приобщиться к природе.
-              </p>
-              <p class="article__source">Лента.ру</p>
-            </div>
-          </div>
-          <div class="article">
-            <div class="article__image">
-              <button class="article__icon article__icon_type_marked"></button>
-            </div>
-            <div class="article__description">
-              <p class="article__date">2 августа, 2019</p>
-              <h3 class="article__title">Национальное достояние - парки</h3>
-              <p class="article__text">
-                В 2016 году Америка отмечала важный юбилей: сто лет назад здесь
-                начала складываться система национальных парков – охраняемых
-                территорий, где и сегодня каждый может приобщиться к природе. В
-                2016 году Америка отмечала важный юбилей: сто лет назад здесь
-                начала складываться система национальных парков – охраняемых
-                территорий, где и сегодня каждый может приобщиться к природе.
-              </p>
-              <p class="article__source">Лента.ру</p>
-            </div>
-          </div>
-        </div>
+        <div id="container" class="results__container"></div>
         <button class="button results__button">Показать еще</button>
       </section>
 
-      <section class="results root__section">
+      <section id="loadingResults" class="results root__section">
         <div class="results__loading">
           <div class="results__preloader"></div>
           <p class="results__search">Идет поиск новостей...</p>
         </div>
       </section>
 
-      <section class="results root__section">
+      <section id="failResults" class="results root__section">
         <div class="results__loading">
           <div class="results__not-found-image"></div>
           <h2 class="results__not-found-title">Ничего не найдено</h2>

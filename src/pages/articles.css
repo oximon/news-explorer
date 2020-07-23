@@ -24,6 +24,7 @@
 @import url('../blocks/header/__item/header__item.css');
 @import url('../blocks/header/__line/header__line.css');
 @import url('../blocks/header/__line/_color/header__line_color_black.css');
+@import url('../blocks/header/__logoutImage/header__logoutImage.css');
 
 @import url('../blocks/header/__articles-amount/header__articles-amount.css');
 @import url('../blocks/header/__articles-keywords/header__articles-keywords.css');
