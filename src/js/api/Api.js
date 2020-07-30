@@ -5,13 +5,14 @@ export default class Api {
     this.config = config;
   }
 
-  signin = async (email, password) => {
+  signin = async (email, password, token) => {
     try {
       const user = await fetch(`${this.config.baseUrl}/signin`, {
         method: 'POST',
-        headers: this.config.headers,
-        credentials: 'include',
-        withCredentials: true,
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: `Bearer ${token}`,
+        },
         body: JSON.stringify({
           email: email,
           password: password,
@@ -31,7 +32,9 @@ export default class Api {
     try {
       const user = await fetch(`${this.config.baseUrl}/signup`, {
         method: 'POST',
-        headers: this.config.headers,
+        headers: {
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify({
           password: password,
           name: name,
@@ -48,13 +51,14 @@ export default class Api {
     }
   };
 
-  getUserInfo = async () => {
+  getUserInfo = async (token) => {
     try {
       const userInfo = await fetch(`${this.config.baseUrl}/users/me`, {
         method: 'GET',
-        headers: this.config.headers,
-        credentials: 'include',
-        withCredentials: true,
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: `Bearer ${token}`,
+        },
       });
       if (userInfo.ok) {
         return userInfo.json();
@@ -64,6 +68,80 @@ export default class Api {
     } catch (err) {
       console.log(err);
     }
-  }
+  };
 
+  getArticles = async (token) => {
+    try {
+      const articles = await fetch(`${this.config.baseUrl}/articles`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: `Bearer ${token}`,
+        },
+      });
+      if (articles.ok) {
+        return articles.json();
+      }
+
+      return Promise.reject(`Ошибка: ${articles.status}`);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  createArticle = async (
+    token,
+    keyword,
+    source,
+    title,
+    description,
+    image,
+    date,
+    url
+  ) => {
+    try {
+      const article = await fetch(`${this.config.baseUrl}/articles`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          keyword: keyword,
+          title: title,
+          text: description,
+          date: date,
+          source: source,
+          link: url,
+          image: image,
+        }),
+      });
+      if (article.ok) {
+        return article.json();
+      }
+
+      return Promise.reject(`Ошибка: ${article.status}`);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  deleteArticle = async (id, token) => {
+    try {
+      const article = await fetch(`${this.config.baseUrl}/articles/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: `Bearer ${token}`,
+        },
+      });
+      if (article.ok) {
+        return article.json();
+      }
+
+      return Promise.reject(`Ошибка: ${article.status}`);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 }

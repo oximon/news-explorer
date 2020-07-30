@@ -6,7 +6,8 @@
   width: 100%;
 }
 
-#toSigninButton {
+#toSigninButton,
+#logoutLink {
   display: flex;
 }
 

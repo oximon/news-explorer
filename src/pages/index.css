@@ -30,7 +30,7 @@
 @import url('../blocks/header/__nav/_hide/header__nav_hide.css');
 @import url('../blocks/header/__line/header__line.css');
 @import url('../blocks/header/__line/_color/header__line_color_white.css');
-@import url('../blocks/header/__logoutImage/header__logoutImage.css');
+@import url('../blocks/header/__link/_after/header__link_after.css');
 
 @import url('../blocks/header/__search/header__search.css');
 @import url('../blocks/header/__info/header__info.css');
@@ -86,11 +86,12 @@
 @import url('../blocks/article/__icon/article__icon.css');
 @import url('../blocks/article/__icon/_type/article__icon_type_save.css');
 @import url('../blocks/article/__icon/_type/article__icon_type_marked.css');
+@import url('../blocks/article/__icon/_type/article__icon_type_UnhoveredSave.css');
 @import url('../blocks/article/__source/article__source.css');
 @import url('../blocks/article/__text/article__text.css');
 @import url('../blocks/article/__title/article__title.css');
 @import url('../blocks/article/article.css');
-@import url('../blocks/article/__tip/article__tip.css');
+@import url('../blocks/article/__link/article__link.css');
 
 /* results */
 @import url('../blocks/results/results.css');

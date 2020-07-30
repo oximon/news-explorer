@@ -1,13 +1,15 @@
 .article {
   background-color: #fff;
-  width: calc((100vw - 768px)/672*176 + 224px);
+  max-width: 100%;
   border-radius: 16px;
   cursor: url('../../images/lapka.png'), pointer;
   text-decoration: none;
+  position: relative;
+  display: flex;
 }
 
 .article:hover {
-	box-shadow: 0 1px 30px rgba(8, 29, 45, 0.1);
+  box-shadow: 0 1px 30px rgba(8, 29, 45, 0.1);
 }
 
 @media screen and (max-width: 1024px) {

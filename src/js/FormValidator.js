@@ -5,7 +5,7 @@ export default class FormValidator {
     this.errorMessage = errorMessage;
   }
 
-  checkInputValidity = (input, error) => {
+  _checkInputValidity = (input, error) => {
     for (let key in this.errorMessage) {
       if (input.validity[key]) {
         return (error.textContent = this.errorMessage[key]);
@@ -14,26 +14,26 @@ export default class FormValidator {
     error.textContent = "";
   };
 
-  setSubmitButtonState = () => {
+  _setSubmitButtonState = () => {
     if (!this.form.checkValidity()) {
-      this.buttonDissable();
-    } else this.buttonEnable();
+      this._buttonDissable();
+    } else this_.buttonEnable();
   };
 
   setEventListeners = () => {
     this.form.addEventListener("input", event => {
-      this.checkInputValidity(event.target, event.target.nextElementSibling);
-      this.setSubmitButtonState();
+      this._checkInputValidity(event.target, event.target.nextElementSibling);
+      this._setSubmitButtonState();
     });
   };
 
-  buttonEnable = () => {
+  _buttonEnable = () => {
     this.button.removeAttribute("disabled");
     this.button.classList.remove("popup__button_is-disabled");
     this.button.classList.add("popup__button_is-enabled");
   };
 
-  buttonDissable = () => {
+  _buttonDissable = () => {
     this.button.setAttribute("disabled", true);
     this.button.classList.add("popup__button_is-disabled");
     this.button.classList.remove("popup__button_is-enabled");

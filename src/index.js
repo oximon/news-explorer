@@ -1,3 +1,5 @@
+/* eslint-disable import/no-named-as-default */
+/* eslint-disable import/no-named-as-default-member */
 import './pages/index.css';
 import Popup from './js/Popup';
 import FormValidator from './js/FormValidator';
@@ -6,7 +8,8 @@ import config from './js/config';
 import NewsApi from './js/api/NewsApi';
 import Article from './js/Article';
 import ArticleList from './js/ArticleList';
-import { dateChanger } from './js/utils';
+import Header from './js/Header';
+import { dateChanger } from './js/utils/utils';
 import { pageSize, toDate } from './js/constants/constants';
 
 const errorMessages = {
@@ -38,13 +41,18 @@ const toSignup = document.querySelector('#toSignup');
 const toSignin = document.querySelector('#toSignin');
 const toSigninSuccess = document.querySelector('#toSigninSuccess');
 
+let token = localStorage.getItem('token');
+let flagLoggedIn = false;
+
 const api = new Api(config);
 const newsapi = new NewsApi(config);
 
+const article = new Article(api);
 const articleList = new ArticleList(
   articleContainer,
-  new Article(newsapi),
+  new Article(api),
   newsapi,
+  document.querySelector('#showMore'),
 );
 
 const signinPopup = new Popup(document.querySelector('.popup_signin'));
@@ -89,36 +97,64 @@ signinPopup.addListeners();
 signupPopup.addListeners();
 successPopup.addListeners();
 
+articleList.addListeners();
+
+const header = new Header(
+  document.querySelector('#item_hide'),
+  document.querySelector('#toSigninItem'),
+  'header__item_hide',
+  document.querySelector('#logout'),
+  document.querySelector('#logoutLink'),
+);
+
+if (token) {
+  try {
+    api.getUserInfo(token).then((userInfo) => {
+      flagLoggedIn = true;
+      header.render(flagLoggedIn, userInfo.data.name);
+    });
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 formSignin.addEventListener('submit', async (e) => {
   e.preventDefault();
   try {
-    const res = await api.signin(
+    token = await api.signin(
       formSignin.elements.email.value,
       formSignin.elements.password.value,
     );
-    api.getUserInfo();
-    const flagLoggedIn = false;
-    const itemHide = document.querySelector('#item_hide');
-
-    if (flagLoggedIn === true) {
-      itemHide.classList.remove('header__item_hide');
-      toSigninButton.textContent = 'Злата';
-      const logoutImage = document.createElement('div');
-      logoutImage.classList.add('header__logoutImage');
-      toSigninButton.appendChild(logoutImage);
-    }
+    flagLoggedIn = true;
+    localStorage.setItem('token', token.token);
+    const userInfo = await api.getUserInfo(token.token);
+    header.render(flagLoggedIn, userInfo.data.name);
+    signinPopup.toggle();
+    article.renderIcons(flagLoggedIn, null, 'article__icon_type_save');
   } catch (err) {
     console.log(err);
   }
 });
 
-formSignup.addEventListener('submit', (e) => {
+document.querySelector('#logout').addEventListener('click', () => {
+  flagLoggedIn = false;
+  localStorage.removeItem('token');
+  header.render(flagLoggedIn, null);
+});
+
+formSignup.addEventListener('submit', async (e) => {
   e.preventDefault();
-  api.signup(
-    formSignup.elements.email.value,
-    formSignup.elements.password.value,
-    formSignup.elements.name.value,
-  );
+  try {
+    await api.signup(
+      formSignup.elements.email.value,
+      formSignup.elements.password.value,
+      formSignup.elements.name.value,
+    );
+    signupPopup.toggle();
+    successPopup.toggle();
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 searchButton.addEventListener('click', async (e) => {
@@ -138,6 +174,9 @@ searchButton.addEventListener('click', async (e) => {
       dateFrom,
       pageSize,
     );
+
+    article.renderIcons(flagLoggedIn, null, 'article__icon_type_save');
+
     if (list === false) {
       loadingResults.classList.remove('results_type_loading');
       failResults.classList.add('results_type_fail');

@@ -1,7 +1,17 @@
-.article__icon_type_save {
-  background: url(../../../../images/Group12.png) center no-repeat;
-}
-
-.article__icon_type_save:hover {
-  background: url(../../../../images/Group11.png) center no-repeat;
+.article__icon_type_save:hover::after {
+  content: 'Войдите, чтобы сохранять статьи';
+  display: block;
+  font-family: 'Roboto', serif;
+  font-size: 12px;
+  line-height: 14px;
+  color: #000;
+  font-weight: bold;
+  background-color: #fff;
+  padding: 13px 12px;
+  position: absolute;
+  border-radius: 10px;
+  top: 0;
+  right: 48px;
+  margin: 0;
+  width: 100px;
 }
