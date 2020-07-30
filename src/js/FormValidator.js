@@ -17,7 +17,7 @@ export default class FormValidator {
   _setSubmitButtonState = () => {
     if (!this.form.checkValidity()) {
       this._buttonDissable();
-    } else this_.buttonEnable();
+    } else this._buttonEnable();
   };
 
   setEventListeners = () => {
