@@ -7,7 +7,7 @@
     <title>Мои статьи - NewsExplorer</title>
     <link
       rel="stylesheet"
-      href="styles/articles.33dce274286afb43ee29.css?fd049fcd4db1ee5e4f63"
+      href="styles/articles.5bc0eaf3fa4c12a0288f.css?1d7b99cdf7f98a84dde6"
       type="text/css"
     />
     <link
@@ -19,12 +19,17 @@
   <body>
     <div class="root">
       <header class="header root__section">
-        <div class="header__navigation">
+        <div id="navigation" class="header__navigation">
           <div class="header__logo">
             <p class="header__logo-text">NewsExplorer</p>
-            <img class="header__mobile-icon" src="./images/menu-dark.png" alt="Иконка меню">
+            <img
+              id="hamburger"
+              class="header__mobile-icon"
+              src="./images/menu-dark.png"
+              alt="Иконка меню"
+            />
           </div>
-          <nav class="header__nav">
+          <nav id="nav" class="header__nav">
             <ul class="header__list">
               <li class="header__item">
                 <a
@@ -33,19 +38,27 @@
                   >Главная</a
                 >
               </li>
-              <li class="header__item">
+              <li id="item_hide" class="header__item header__item_hide">
                 <a
                   href="./articles.html"
                   class="link header__link header__link_color_black header__link_active-black"
                   >Сохранённые статьи</a
                 >
               </li>
-              <li class="header__item">
+              <li id="toSigninItem" class="header__item">
                 <a
+                  id="toSigninButton"
                   href="#"
-                  class="link header__link_color_black header__link header__link_border-black "
-                  >Авторизоваться</a
+                  class="link header__link_color_white header__link header__link_border-white"
+                >Авторизоваться</a>
+              </li>
+              <li id="logout" class="header__item header__item_hide">
+                <a
+                  id="logoutLink"
+                  href="#"
+                  class="link header__link_color_black header__link header__link_border-black header__link_after-black"
                 >
+                </a>
               </li>
             </ul>
           </nav>
@@ -56,101 +69,19 @@
         <section class="header__articles root__section">
           <h2 class="header__articles-title">Сохранённые статьи</h2>
           <p class="header__articles-amount">
-            Грета, у вас 5 сохранённых статей
+            <span id="userName"></span>, у вас <span id="amountArticles"></span> сохранённых статей
           </p>
           <p class="header__articles-text-keywords">
             По ключевым словам:
             <span class="header__articles-keywords"
-              >Природа, Тайга и 2 другим</span
+              ></span
             >
           </p>
         </section>
       </header>
 
-      <section class="results root__section">
-        <div class="results__container">
-          <div class="article">
-            <div class="article__image">
-              <p class="article__keyword">Природа</p>
-              <button class="article__icon article__icon_type_delete"></button>
-              <p class="article__tip">Убрать из сохранённых</p>
-            </div>
-            <div class="article__description">
-              <p class="article__date">2 августа, 2019</p>
-              <h3 class="article__title">Национальное достояние - парки</h3>
-              <p class="article__text">
-                В 2016 году Америка отмечала важный юбилей: сто лет назад здесь
-                начала складываться система национальных парков – охраняемых
-                территорий, где и сегодня каждый может приобщиться к природе.
-              </p>
-              <p class="article__source">Лента.ру</p>
-            </div>
-          </div>
-          <div class="article">
-            <div class="article__image">
-              <p class="article__keyword">Природа</p>
-              <button class="article__icon article__icon_type_delete"></button>
-            </div>
-            <div class="article__description">
-              <p class="article__date">2 августа, 2019</p>
-              <h3 class="article__title">Национальное достояние - парки</h3>
-              <p class="article__text">
-                В 2016 году Америка отмечала важный юбилей: сто лет назад здесь
-                начала складываться система национальных парков – охраняемых
-                территорий, где и сегодня каждый может приобщиться к природе.
-              </p>
-              <p class="article__source">Лента.ру</p>
-            </div>
-          </div>
-          <div class="article">
-            <div class="article__image">
-              <p class="article__keyword">Природа</p>
-              <button class="article__icon article__icon_type_delete"></button>
-            </div>
-            <div class="article__description">
-              <p class="article__date">2 августа, 2019</p>
-              <h3 class="article__title">Национальное достояние - парки</h3>
-              <p class="article__text">
-                В 2016 году Америка отмечала важный юбилей: сто лет назад здесь
-                начала складываться система национальных парков – охраняемых
-                территорий, где и сегодня каждый может приобщиться к природе.
-              </p>
-              <p class="article__source">Лента.ру</p>
-            </div>
-          </div>
-          <div class="article">
-            <div class="article__image">
-              <p class="article__keyword">Природа</p>
-              <button class="article__icon article__icon_type_delete"></button>
-            </div>
-            <div class="article__description">
-              <p class="article__date">2 августа, 2019</p>
-              <h3 class="article__title">Национальное достояние - парки</h3>
-              <p class="article__text">
-                В 2016 году Америка отмечала важный юбилей: сто лет назад здесь
-                начала складываться система национальных парков – охраняемых
-                территорий, где и сегодня каждый может приобщиться к природе.
-              </p>
-              <p class="article__source">Лента.ру</p>
-            </div>
-          </div>
-          <div class="article">
-            <div class="article__image">
-              <p class="article__keyword">Природа</p>
-              <button class="article__icon article__icon_type_delete"></button>
-            </div>
-            <div class="article__description">
-              <p class="article__date">2 августа, 2019</p>
-              <h3 class="article__title">Национальное достояние - парки</h3>
-              <p class="article__text">
-                В 2016 году Америка отмечала важный юбилей: сто лет назад здесь
-                начала складываться система национальных парков – охраняемых
-                территорий, где и сегодня каждый может приобщиться к природе.
-              </p>
-              <p class="article__source">Лента.ру</p>
-            </div>
-          </div>
-        </div>
+      <section class="results root__section results_type_success">
+        <div id="savedContainer" class="results__container"></div>
       </section>
 
       <footer class="footer root__section">
@@ -183,6 +114,6 @@
         </div>
       </footer>
     </div>
-    <script src="articles.492fdecb228a7fbe7a88.js?fd049fcd4db1ee5e4f63"></script>
+    <script src="articles.f8935993b56be69656e6.js?1d7b99cdf7f98a84dde6"></script>
   </body>
 </html>

@@ -7,7 +7,7 @@
     <title>Главная - NewsExplorer</title>
     <link
       rel="stylesheet"
-      href="styles/index.0c479785f834a8cc27b3.css?fd049fcd4db1ee5e4f63"
+      href="styles/index.01a1baab1e34fc9c2f49.css?1d7b99cdf7f98a84dde6"
       type="text/css"
     />
     <link
@@ -46,13 +46,21 @@
                     >Сохранённые статьи</a
                   >
                 </li>
-                <li class="header__item">
+                <li id="toSigninItem" class="header__item">
                   <a
                     id="toSigninButton"
                     href="#"
                     class="link header__link_color_white header__link header__link_border-white"
                     >Авторизоваться</a
                   >
+                </li>
+                <li id="logout" class="header__item header__item_hide">
+                  <a
+                    id="logoutLink"
+                    href="#"
+                    class="link header__link_color_white header__link header__link_border-white header__link_after"
+                  >
+                  </a>
                 </li>
               </ul>
             </nav>
@@ -229,7 +237,9 @@
                 placeholder="Введите тему новости"
                 class="header__input"
               />
-              <button id="searchButton" class="button header__button">Искать</button>
+              <button id="searchButton" class="button header__button">
+                Искать
+              </button>
             </form>
           </section>
         </div>
@@ -238,7 +248,9 @@
       <section id="successResults" class="results root__section">
         <h2 class="results__title">Результаты поиска</h2>
         <div id="container" class="results__container"></div>
-        <button class="button results__button">Показать еще</button>
+        <button id="showMore" class="button results__button">
+          Показать еще
+        </button>
       </section>
 
       <section id="loadingResults" class="results root__section">
@@ -252,7 +264,9 @@
         <div class="results__loading">
           <div class="results__not-found-image"></div>
           <h2 class="results__not-found-title">Ничего не найдено</h2>
-          <p class="results__search">К сожалению по вашему запросу ничего не найдено.</p>
+          <p class="results__search">
+            К сожалению по вашему запросу ничего не найдено.
+          </p>
         </div>
       </section>
 
@@ -307,6 +321,6 @@
         </div>
       </footer>
     </div>
-    <script src="index.3cc630ce01786a55a255.js?fd049fcd4db1ee5e4f63"></script>
+    <script src="index.476094d63ea38fd54ca4.js?1d7b99cdf7f98a84dde6"></script>
   </body>
 </html>
