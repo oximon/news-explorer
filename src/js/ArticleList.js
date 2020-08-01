@@ -66,24 +66,32 @@ export default class ArticleList {
       const news = await this.api.getNews(query, toDate, fromDate, pageSize);
       if (news.totalResults === 0) {
         return false;
-      }
+			}
+			this.news = news;
+      this.button.removeAttribute('style');
       let SplicedNews = news.articles.splice(0, 3);
       this._render(SplicedNews);
-      this._showMore(SplicedNews, news.articles);
+      this.button.addEventListener(
+        'click',
+        this._buttonShowMore
+      );
     } catch (err) {
       console.log(err);
     }
   };
 
   _showMore = (spliced, found) => {
-    this.button.addEventListener('click', () => {
+    if (found.length === 0) {
+      this.button.setAttribute('style', 'display: none');
+    } else {
       spliced = found.splice(0, 3);
-      if (found.length === 0) {
-        this.button.remove();
-      }
-      this.render(spliced);
-    });
-  };
+      this._render(spliced);
+    }
+	};
+
+	_buttonShowMore = () => {
+		this._showMore(this.news.articles.splice(0, 3), this.news.articles);
+	}
 
   addListeners = () => {
     this.container.addEventListener('click', this.article.addToFavorites);

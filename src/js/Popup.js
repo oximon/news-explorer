@@ -14,4 +14,14 @@ export default class Popup {
         this.toggle();
       });
   };
+
+  addListenersESC = (e) => {
+    this.container
+      .querySelector('.popup__close')
+      .addEventListener('keyup', () => {
+        if (e.code === 'Escape') {
+          this.toggle();
+        }
+      });
+  };
 }
