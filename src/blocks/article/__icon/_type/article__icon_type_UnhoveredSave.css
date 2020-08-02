@@ -1,0 +1,7 @@
+.article__icon_type_UnhoveredSave {
+  background: url(../../../../images/Group12.png) center no-repeat;
+}
+
+.article__icon_type_UnhoveredSave:hover {
+  background: url(../../../../images/Group11.png) center no-repeat;
+}
